@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>留言板 · 小王</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部固定导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">小王 · 留言板<span class="nav-badge">1-27</span></div>
+    <ul class="nav-menu">
+      <li><a href="start.html">欢迎首页</a></li>
+      <li><a href="index.html">返回主页</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="切换日间/夜间模式">🌙</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <h2 class="page-title">在这里写下你的留言</h2>
+    <p class="page-desc">欢迎留下你的建议与祝福，我会认真阅读每一条留言。</p>
+
+    <!-- 留言表单（预留，暂无功能代码） -->
+    <div class="section-card">
+      <div class="form-tip">此表单为页面预留功能，提交与校验逻辑将在后续 JavaScript 与 JSP 课程中逐步实现。</div>
+      <form class="msg-form" method="post" action="#">
+        <div class="field">
+          <label for="nick">昵称</label>
+          <input type="text" id="nick" name="nick" placeholder="请输入您的昵称">
+        </div>
+        <div class="field">
+          <label for="message">留言内容</label>
+          <textarea id="message" name="message" placeholder="请输入您的留言内容…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">提交留言</button>
+      </form>
+    </div>
+
+    <!-- 留言列表占位 -->
+    <div class="msg-empty">
+      暂无留言，快来留下第一条吧。
+    </div>
+
+    <div class="footer">
+      © 2026 小王 · 学号 1-27 ｜ <a href="index.html">返回主页</a>
+    </div>
+
+  </main>
+
+  <!-- 返回顶部 -->
+  <button class="back-top" id="backTop" title="返回顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小王 · 个人介绍主页</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部固定导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">小王 · 个人主页<span class="nav-badge">1-27</span></div>
+    <ul class="nav-menu">
+      <li><a href="start.html">欢迎首页</a></li>
+      <li><a href="#profile" class="active" data-section="profile">个人信息</a></li>
+      <li><a href="#education" data-section="education">教育经历</a></li>
+      <li><a href="#skills" data-section="skills">专业技能</a></li>
+      <li><a href="#hobbies" data-section="hobbies">兴趣爱好</a></li>
+      <li><a href="#evaluation" data-section="evaluation">自我评价</a></li>
+      <li><a href="guestbook.html">留言板</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" title="切换日间/夜间模式">🌙</button>
+    </div>
+  </nav>
+
+  <main class="container" id="mainContent">
+
+    <!-- 个人信息 -->
+    <div class="profile-card" id="profile">
+      <div class="avatar-box">
+        <img src="assets/avatar.jpg" alt="小王的头像">
+      </div>
+      <div class="profile-info">
+        <h1>小王</h1>
+        <div class="position">Web 前端方向 · 计算机科学与技术专业</div>
+        <div class="contact-list">
+          <span>江苏 · 南京</span>
+          <span>13806250027</span>
+          <span>xiaowang@example.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成绩亮点 -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">前 10%</div>
+        <div class="stat-label">专业排名</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">校级</div>
+        <div class="stat-label">一等奖学金</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">CET-4</div>
+        <div class="stat-label">通过英语四级</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2024</div>
+        <div class="stat-label">入学至今</div>
+      </div>
+    </div>
+
+    <!-- 教育经历 -->
+    <div class="section-card" id="education">
+      <div class="section-title">教育经历</div>
+      <div class="edu-item">
+        <div class="edu-main">
+          <h3>南京审计大学 · 计算机科学与技术</h3>
+          <p>主修课程：数据结构、计算机网络、Web前端开发、数据库原理、软件工程</p>
+        </div>
+        <div class="edu-time">2024.9 - 至今</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-main">
+          <h3>学业成绩</h3>
+          <p>专业排名前 10%，获校级一等奖学金，通过英语四级</p>
+        </div>
+        <div class="edu-time">2024 - 至今</div>
+      </div>
+    </div>
+
+    <!-- 专业技能 -->
+    <div class="section-card" id="skills">
+      <div class="section-title">专业技能</div>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <h4><span>HTML / CSS</span><span class="skill-val">85%</span></h4>
+          <div class="skill-bar"><div class="skill-bar-inner" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <h4><span>JavaScript</span><span class="skill-val">70%</span></h4>
+          <div class="skill-bar"><div class="skill-bar-inner" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <h4><span>Java / JSP 基础</span><span class="skill-val">60%</span></h4>
+          <div class="skill-bar"><div class="skill-bar-inner" data-width="60"></div></div>
+        </div>
+        <div class="skill-item">
+          <h4><span>Oracle / MySQL</span><span class="skill-val">65%</span></h4>
+          <div class="skill-bar"><div class="skill-bar-inner" data-width="65"></div></div>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span>响应式布局</span><span>Flex布局</span><span>CSS动画</span><span>表单设计</span><span>Git版本控制</span><span>Office办公软件</span>
+      </div>
+    </div>
+
+    <!-- 兴趣爱好 -->
+    <div class="section-card" id="hobbies">
+      <div class="section-title">兴趣爱好</div>
+      <div class="hobby-grid">
+        <div class="hobby-item">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          <h4>网页设计</h4>
+          <p>喜欢研究优秀网站的布局与配色</p>
+        </div>
+        <div class="hobby-item">
+          <svg viewBox="0 0 24 24"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"/></svg>
+          <h4>摄影</h4>
+          <p>记录校园生活与城市风景</p>
+        </div>
+        <div class="hobby-item">
+          <svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+          <h4>阅读</h4>
+          <p>偏爱技术书籍与科幻小说</p>
+        </div>
+        <div class="hobby-item">
+          <svg viewBox="0 0 24 24"><path d="M19.07 4.93a10 10 0 100 14.14l-1.41-1.41a8 8 0 110-11.32l1.41-1.41zM15.83 9.24l-1.41 1.41a4 4 0 11-5.66 5.66l-1.41 1.41a6 6 0 108.48-8.48z"/></svg>
+          <h4>羽毛球</h4>
+          <p>每周坚持运动，保持健康体魄</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 自我评价 -->
+    <div class="section-card self-eval" id="evaluation">
+      <div class="section-title">自我评价</div>
+      <div class="quote">踏实做事，认真做人，保持对技术的热爱。</div>
+      <p>本人性格踏实认真，学习能力较强，对 Web 前端开发有浓厚兴趣，能够主动学习新技术并应用到实际项目中。在校期间多次参与课程小组项目，具备良好的团队协作能力和沟通能力。</p>
+      <p>熟悉 HTML、CSS、JavaScript 等前端基础技术，了解响应式布局和基本的页面交互开发，能够独立完成中小型静态页面的设计与开发。做事注重细节，对页面视觉效果和用户体验有一定要求，希望将前端与后端知识结合起来，成长为一名合格的全栈工程师。</p>
+    </div>
+
+    <div class="footer">
+      © 2026 小王 · 学号 1-27 ｜ <a href="guestbook.html">前往留言板</a> ｜ <a href="start.html">欢迎首页</a>
+    </div>
+
+  </main>
+
+  <!-- 返回顶部 -->
+  <button class="back-top" id="backTop" title="返回顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
