@@ -1,0 +1,414 @@
+/* ============================================================
+   小王个人简介网站 · 全局样式表 style.css
+   设计风格：效仿第一次作业「求职者信息展示页」
+   主色调：#4a6fa5 蓝色系 · 白/浅灰卡片 · 毛玻璃固定导航
+   支持：深色模式、技能进度条、统计亮点、响应式
+   ============================================================ */
+
+:root {
+  --primary: #4a6fa5;
+  --primary-light: #6b8fc7;
+  --primary-soft: #eef2f8;
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #2a2a2a;
+  --text-sub: #666666;
+  --text-light: #999999;
+  --border: #e6eaf0;
+  --bar-bg: #e4e7ec;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --font-body: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+  --font-serif: "KaiTi", "STKaiti", serif;
+}
+
+body.dark {
+  --primary: #8ab4f8;
+  --primary-light: #a6c4f8;
+  --primary-soft: rgba(74, 111, 165, 0.2);
+  --bg: #1a1a2e;
+  --card: #252540;
+  --text: #e0e0e0;
+  --text-sub: #aaa;
+  --text-light: #888;
+  --border: #3a3a5a;
+  --bar-bg: #3a3a5a;
+  --nav-bg: rgba(26, 26, 46, 0.92);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding-top: 62px;
+  transition: background 0.3s, color 0.3s;
+}
+a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--primary-light); }
+
+/* ================= 顶部固定导航栏 ================= */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 12px;
+  transition: transform 0.3s ease, background 0.3s;
+}
+.navbar.hidden { transform: translateY(-100%); }
+.nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.nav-badge {
+  font-size: 12px;
+  font-weight: 400;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 10px;
+  padding: 1px 8px;
+}
+.nav-menu { display: flex; gap: 4px; list-style: none; flex-wrap: nowrap; }
+.nav-menu a {
+  color: var(--text-sub);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-menu a:hover, .nav-menu a.active { background: var(--primary-soft); color: var(--primary); }
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.theme-toggle {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-soft);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--primary-light); }
+
+/* ================= 页面容器 ================= */
+.container { max-width: 960px; margin: 0 auto; padding: 24px 15px 40px; }
+
+/* ================= 欢迎页（前置页面） ================= */
+.welcome-page { padding-top: 0; }
+.welcome-box {
+  text-align: center;
+  padding: 52px 44px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  max-width: 520px;
+  margin: 12vh auto 20px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+}
+.welcome-box:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.welcome-box .w-icon {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 32px; font-weight: 700; color: #fff;
+}
+.welcome-box h1 { font-size: 26px; color: var(--text); margin-bottom: 6px; }
+.welcome-box h2 { font-size: 18px; color: var(--primary); margin-bottom: 14px; }
+.welcome-box p { font-size: 14px; color: var(--text-sub); margin-bottom: 22px; }
+.enter-btn {
+  display: inline-block;
+  padding: 11px 34px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 24px;
+  font-size: 15px;
+  transition: background 0.2s, transform 0.2s;
+}
+.enter-btn:hover { background: var(--primary-light); color: #fff; transform: translateY(-2px); }
+.link-small { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--text-light); }
+.link-small:hover { color: var(--primary); }
+
+/* ================= 个人信息卡片 ================= */
+.profile-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  box-shadow: var(--shadow);
+  margin: 24px 0;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+}
+.profile-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.avatar-box {
+  width: 128px; height: 128px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary);
+  box-shadow: 0 4px 14px rgba(74, 111, 165, 0.35);
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+.avatar-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.profile-info h1 { font-size: 30px; color: var(--text); margin-bottom: 6px; }
+.profile-info .position {
+  font-size: 17px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.contact-list { display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; color: var(--text-sub); }
+.contact-list span::before { content: "● "; color: var(--primary); font-size: 10px; }
+
+/* ================= 统计亮点 ================= */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.stat-item {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+}
+.stat-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.stat-num { font-size: 22px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.stat-label { font-size: 13px; color: var(--text-sub); }
+
+/* ================= 通用卡片 ================= */
+.section-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px 36px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+}
+.section-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+/* ================= 教育经历 ================= */
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-main h3 { font-size: 16px; color: var(--text); margin-bottom: 4px; }
+.edu-main p { font-size: 14px; color: var(--text-sub); }
+.edu-time { font-size: 14px; color: var(--text-light); white-space: nowrap; padding-top: 3px; }
+
+/* ================= 专业技能 ================= */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.skill-item {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  transition: background 0.3s;
+}
+.skill-item h4 {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skill-val { color: var(--primary); font-weight: 600; }
+.skill-bar { height: 8px; background: var(--bar-bg); border-radius: 4px; overflow: hidden; }
+.skill-bar-inner {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.skill-tags span {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.skill-tags span:hover { background: var(--primary); color: #fff; }
+
+/* ================= 兴趣爱好 ================= */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+.hobby-item {
+  background: var(--primary-soft);
+  border-radius: var(--radius-sm);
+  padding: 18px 16px;
+  text-align: center;
+  transition: transform 0.2s, background 0.3s;
+}
+.hobby-item:hover { transform: translateY(-4px); background: var(--primary-light); }
+.hobby-item svg { width: 30px; height: 30px; margin-bottom: 8px; fill: var(--primary); }
+.hobby-item:hover svg { fill: #fff; }
+.hobby-item h4 { font-size: 15px; color: var(--text); margin-bottom: 4px; }
+.hobby-item p { font-size: 13px; color: var(--text-sub); }
+.hobby-item:hover h4, .hobby-item:hover p { color: #fff; }
+
+/* ================= 自我评价 ================= */
+.self-eval .quote {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--primary);
+  border-left: 3px solid var(--primary-light);
+  padding: 4px 0 4px 14px;
+  margin-bottom: 12px;
+}
+.self-eval p { font-size: 15px; color: var(--text-sub); text-indent: 2em; margin-bottom: 10px; }
+.self-eval p:last-child { margin-bottom: 0; }
+
+/* ================= 留言板页面 ================= */
+.page-title { font-size: 26px; text-align: center; margin: 6px 0 6px; }
+.page-desc { text-align: center; color: var(--text-sub); font-size: 14px; margin-bottom: 20px; }
+.form-tip {
+  font-size: 13px;
+  color: var(--text-sub);
+  background: var(--primary-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 18px;
+}
+.msg-form .field { margin-bottom: 16px; }
+.msg-form label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.msg-form input, .msg-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.msg-form input:focus, .msg-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+.msg-form textarea { min-height: 130px; resize: vertical; }
+.btn-submit {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 22px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-body);
+}
+.btn-submit:hover { background: var(--primary-light); }
+.msg-empty {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 13.5px;
+  margin-top: 20px;
+}
+
+/* ================= 返回顶部 ================= */
+.back-top {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(74, 111, 165, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.back-top.show { opacity: 1; visibility: visible; }
+.back-top:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+/* ================= 页脚 ================= */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
+  padding: 8px 0 30px;
+}
+.footer a { color: var(--primary); }
+
+/* ================= 页面过渡动画 ================= */
+.fade-in { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= 响应式适配 ================= */
+@media (max-width: 768px) {
+  body { padding-top: 56px; }
+  .nav-menu { display: none; }
+  .navbar { justify-content: space-between; padding: 0 16px; }
+  .profile-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+  .contact-list { justify-content: center; }
+  .section-card { padding: 22px 20px; }
+  .edu-item { flex-direction: column; gap: 4px; }
+  .welcome-box { padding: 36px 24px; margin-top: 8vh; }
+}
